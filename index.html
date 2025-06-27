@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZaTools - 誇りを持って支える人の、支えに。</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#home">
+                    <img src="images/logo.png" alt="ZaTools Logo" class="logo-img">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#vision-mission">ビジョン・ミッション</a></li>
+                    <li><a href="#tools">ツール紹介</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- トップセクション -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="main-copy">ZaToolsとは</h2>
+                <p class="sub-copy">― 現場から生まれた、直感で使える医療支援ツール ―</p>
+                <div class="greeting-text">
+                    <p>ZaToolsは、神経内科を専門とする現役医師が、日々の診療現場での課題から生まれた「医療従事者のための直感的な支援ツール」です。</p>
+                    <p>複雑な判断や業務の中で、もう一歩の安心や一瞬の助けになるような、小さくとも本質を支えるツールを目指して開発を行っています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ビジョン・ミッションセクション -->
+    <section id="vision-mission" class="vision-mission">
+        <div class="container">
+            <div class="vision-mission-content">
+                <div class="vision">
+                    <h2 class="section-title">Vision</h2>
+                    <div class="vision-text">
+                        <p class="vision-statement">誇りを持って支える人の、支えに。</p>
+                        <p class="vision-statement">才能と覚悟と情熱を、絶えぬように。</p>
+                        <p class="vision-statement">また、誰かが救われるように。</p>
+                    </div>
+                </div>
+                <div class="mission">
+                    <h2 class="section-title">Mission</h2>
+                    <div class="mission-text">
+                        <p>医療の現場に根ざし、</p>
+                        <p>見えない隔たりを越えて、</p>
+                        <p>現場に寄り添うツールを生み出し、</p>
+                        <p>医療を支える人々の誇りと情熱を守り、</p>
+                        <p>次の時代を担う力へとつなげていく。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ツール紹介セクション -->
+    <section id="tools" class="tools">
+        <div class="container">
+            <h2 class="section-title">医療を支えるツール</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>MMTcalculator</h3>
+                    <p>筋力評価（MMT）から脊髄高位を直感的に把握できる支援ツール。</p>
+                    <a href="https://apps.apple.com/jp/app/mmtcalculator/id6744838594" class="tool-link" target="_blank">
+                        <i class="fab fa-app-store"></i>
+                        App Storeで見る
+                    </a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>EVTsimulator</h3>
+                    <p>血管径とカテーテル選択を視覚的に学べる支援ツール。</p>
+                    <a href="https://apps.apple.com/jp/app/evtsimulator/id6744429676?uo=2" class="tool-link" target="_blank">
+                        <i class="fab fa-app-store"></i>
+                        App Storeで見る
+                    </a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>UPDRS Logger Online</h3>
+                    <p>パーキンソン病の評価スコアをブラウザ上で簡単に記録できるツール。</p>
+                    <a href="/updrslogger/index.html" class="tool-link">近日公開</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>NIHSS Logger</h3>
+                    <p>脳卒中重症度スコアを直感的に記録・管理できるツール。</p>
+                    <span class="status">開発中</span>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <h3>ALSFRS Logger</h3>
+                    <p>筋萎縮性側索硬化症の機能評価スコアを効率的に記録・管理できるツール。</p>
+                    <span class="status">開発中</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <div class="contact-content">
+                <p>ZaToolsでは、医療現場で役立つツールの開発を続けています。<br>
+                ご意見・ご感想、アプリの不具合、または「こんなツールが欲しい」といったアイデアがあれば、ぜひお聞かせください。</p>
+                <a href="https://forms.gle/wY98Wci4zPcH22ke7" class="contact-link" target="_blank">
+                    <i class="fas fa-comment-dots"></i>
+                    ご意見・ご感想フォーム
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="ZaTools Logo" class="footer-logo-img">
+                </div>
+                <p>&copy; 2025 ZaTools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 
