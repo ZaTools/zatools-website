@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-text="pageTitle">MS_cal - 多発性硬化症 EDSS/FS 評価ツール | ZaTools</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="多発性硬化症のEDSS/FS評価を効率的に行うためのWebアプリケーション。Kurtzke 1983年論文準拠の正確な計算エンジンを搭載。機能系統評価、歩行能力評価、患者データ管理機能付き。">
+    <meta name="keywords" content="MS_cal,多発性硬化症,EDSS,FS,機能系統,神経内科,評価ツール,Kurtzke,医療,脱髄性疾患,神経学的評価">
+    <meta name="author" content="ZaTools">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="MS_cal - 多発性硬化症 EDSS/FS 評価ツール">
+    <meta property="og:description" content="Kurtzke 1983年論文準拠の正確な多発性硬化症評価ツール。機能系統と歩行能力を総合評価してEDSSスコアを自動計算。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zatools.com/mscal/">
+    <meta property="og:image" content="https://zatools.com/images/logo.png">
+    <meta property="og:site_name" content="ZaTools">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "MS_cal",
+        "applicationCategory": "Medical Tool",
+        "description": "多発性硬化症のEDSS/FS評価ツール",
+        "url": "https://zatools.com/mscal/",
+        "operatingSystem": "Web Browser",
+        "publisher": {
+            "@type": "Organization",
+            "name": "ZaTools"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> ZaToolsに戻る
+    </a>
+
+    <div class="container">
+        <!-- ヘッダー -->
+        <header class="header">
+            <div class="header-top">
+                <div class="header-left">
+                    <h1><i class="fas fa-stethoscope"></i> MS_cal</h1>
+                    <p data-text="headerTitle">多発性硬化症 EDSS/FS 評価ツール</p>
+                    <p class="subtitle" data-text="subtitle">Kurtzke 1983年論文準拠 - 正確で効率的なMS評価をサポート</p>
+                </div>
+                <div class="header-right">
+                    <div class="language-selector">
+                        <button id="langJa" class="lang-btn active">日本語</button>
+                        <button id="langEn" class="lang-btn">English</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- メインコンテンツ -->
+        <main class="main-content">
+            <!-- 免責事項 -->
+            <div class="disclaimer">
+                <h3><i class="fas fa-exclamation-triangle"></i> <span data-text="disclaimer">重要な免責事項</span></h3>
+                <p data-text="disclaimer"><strong>医療従事者の皆様へ：</strong></p>
+                <p data-text="disclaimer">本ツールは<strong>臨床判断を支援するための計算補助ツール</strong>です。<strong>医学的診断や治療方針の決定に代わるものではありません</strong>。</p>
+                <p data-text="disclaimer"><strong>最終的な判断は必ず医師の責任で行ってください</strong>。患者のプライバシー保護にもご注意ください。</p>
+            </div>
+
+            <!-- EDSSスコア表示 -->
+            <div class="edss-result">
+                <div class="edss-score" id="edss-score">0.0</div>
+                <div class="edss-description" id="edss-description">正常な神経学的検査</div>
+                <div class="edss-details">EDSS: Expanded Disability Status Scale</div>
+                <div class="calculation-basis" id="calculation-basis"></div>
+                <div class="warnings" id="warnings-display"></div>
+            </div>
+
+            <!-- 患者情報入力 -->
+            <section class="evaluation-section">
+                <h2 class="section-title"><i class="fas fa-user"></i> <span data-text="patientInfo">患者情報</span></h2>
+                <div class="patient-info">
+                    <div class="input-group">
+                        <label for="patient-id" data-text="patientId">患者ID</label>
+                        <input type="text" id="patient-id" data-placeholder="patientIdPlaceholder" placeholder="患者IDを入力してください">
+                    </div>
+                    <div class="input-group">
+                        <label for="evaluation-date" data-text="evaluationDate">評価日</label>
+                        <input type="date" id="evaluation-date">
+                    </div>
+                </div>
+            </section>
+
+            <!-- FS評価セクション -->
+            <section class="evaluation-section">
+                <h2 class="section-title"><i class="fas fa-brain"></i> <span data-text="fsEvaluation">機能系統 (FS) 評価</span></h2>
+                <div class="fs-grid" id="fs-grid">
+                    <!-- JavaScript で動的に生成 -->
+                </div>
+            </section>
+
+            <!-- 歩行能力評価 -->
+            <section class="evaluation-section">
+                <h2 class="section-title"><i class="fas fa-walking"></i> <span data-text="walkingEvaluation">歩行能力評価</span></h2>
+                <div class="walking-grid" id="walking-grid">
+                    <!-- JavaScript で動的に生成 -->
+                </div>
+            </section>
+
+            <!-- メモ -->
+            <section class="evaluation-section notes-section">
+                <h2 class="section-title"><i class="fas fa-sticky-note"></i> 評価メモ</h2>
+                <textarea id="notes" placeholder="評価に関するメモや特記事項があれば記入してください..."></textarea>
+            </section>
+
+            <!-- アクションボタン -->
+            <div class="action-buttons">
+                <button class="btn btn-success" id="save-evaluation">
+                    <i class="fas fa-save"></i> <span data-text="save">評価を保存</span>
+                </button>
+                <button class="btn btn-secondary" id="reset-evaluation">
+                    <i class="fas fa-redo"></i> <span data-text="reset">リセット</span>
+                </button>
+                <button class="btn btn-primary" id="show-history">
+                    <i class="fas fa-history"></i> <span data-text="history">履歴表示</span>
+                </button>
+            </div>
+
+            <!-- 履歴セクション -->
+            <section class="evaluation-section history-section" id="history-section" style="display: none;">
+                <h2 class="section-title"><i class="fas fa-clock"></i> <span data-text="history">評価履歴</span></h2>
+                <div class="patient-selector" style="margin-bottom: 20px;">
+                    <label for="patient-selector">患者を選択:</label>
+                    <select id="patient-selector" style="padding: 8px; border-radius: 5px; border: 2px solid #e1e5e9; margin-left: 10px;">
+                        <option value="">患者を選択してください</option>
+                    </select>
+                </div>
+                <div class="history-list" id="history-list">
+                    <!-- JavaScript で動的に生成 -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- FSヘルプモーダル（8つの機能系統分） -->
+    <div id="pyramidalHelpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title" data-text="fsDefinitions.pyramidal.title">錐体路機能</h2>
+            <div class="fs-definition-content"></div>
+        </div>
+    </div>
+
+    <div id="cerebellarHelpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title" data-text="fsDefinitions.cerebellar.title">小脳機能</h2>
+            <div class="fs-definition-content"></div>
+        </div>
+    </div>
+
+    <div id="brainstemHelpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title" data-text="fsDefinitions.brainstem.title">脳幹機能</h2>
+            <div class="fs-definition-content"></div>
+        </div>
+    </div>
+
+    <div id="sensoryHelpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title" data-text="fsDefinitions.sensory.title">感覚機能</h2>
+            <div class="fs-definition-content"></div>
+        </div>
+    </div>
+
+    <div id="bowelBladderHelpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title" data-text="fsDefinitions.bowelBladder.title">腸管・膀胱機能</h2>
+            <div class="fs-definition-content"></div>
+        </div>
+    </div>
+
+    <div id="visualHelpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title" data-text="fsDefinitions.visual.title">視覚機能</h2>
+            <div class="fs-definition-content"></div>
+        </div>
+    </div>
+
+    <div id="cerebralHelpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title" data-text="fsDefinitions.cerebral.title">大脳機能（精神機能）</h2>
+            <div class="fs-definition-content"></div>
+        </div>
+    </div>
+
+    <div id="otherHelpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title" data-text="fsDefinitions.other.title">その他の神経機能</h2>
+            <div class="fs-definition-content"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="language.js"></script>
+    <script src="data-models.js"></script>
+    <script src="edss-calculator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 

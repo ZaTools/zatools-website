@@ -3,7 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZaTools - 誇りを持って支える人の、支えに。</title>
+    <title>ZaTools - 誇りを持って支える人の、支えに。医療従事者のための支援ツール</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ZaToolsは神経内科専門医が開発した医療従事者向け支援ツールです。MMT計算機、EDSS評価ツール、UPDRS記録システムなど、現場から生まれた直感的なツールを提供しています。">
+    <meta name="keywords" content="ZaTools,医療ツール,神経内科,MMT,EDSS,UPDRS,NIHSS,医療従事者,支援ツール,多発性硬化症,パーキンソン病,脳卒中,医療現場">
+    <meta name="author" content="ZaTools">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="ZaTools - 医療従事者のための支援ツール">
+    <meta property="og:description" content="神経内科専門医が開発した医療現場に根ざした直感的な支援ツール。MMT計算機、EDSS評価、UPDRS記録など多彩なツールを提供。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zatools.com">
+    <meta property="og:image" content="https://zatools.com/images/logo.png">
+    <meta property="og:site_name" content="ZaTools">
+    <meta property="og:locale" content="ja_JP">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ZaTools - 医療従事者のための支援ツール">
+    <meta name="twitter:description" content="神経内科専門医が開発した医療現場に根ざした直感的な支援ツール">
+    <meta name="twitter:image" content="https://zatools.com/images/logo.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ZaTools",
+        "description": "医療従事者のための支援ツール",
+        "url": "https://zatools.com",
+        "author": {
+            "@type": "Person",
+            "name": "ZaTools開発チーム",
+            "jobTitle": "神経内科専門医"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ZaTools",
+            "url": "https://zatools.com"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://zatools.com/?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,6 +166,17 @@
                     <h3>NIHSS Logger</h3>
                     <p>脳卒中重症度スコアを直感的に記録・管理できるツール。</p>
                     <span class="status">開発中</span>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>MS_cal</h3>
+                    <p>多発性硬化症のEDSS/FS評価を効率的に行うWebツール。Kurtzke 1983年論文準拠の正確な計算エンジンを搭載。</p>
+                    <a href="/mscal/index.html" class="tool-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        Web版を使用
+                    </a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon">
